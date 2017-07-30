@@ -173,6 +173,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 let PoemNav = (_dec = (0, _reactRedux.connect)(_vgStore.mapStateToProps, _vgStore.mapDispatchToProps), _dec(_class = class PoemNav extends _react.Component {
     render() {
         const { poets, poems, getPoet, getPoem } = this.props;
+        const ulStyle = { display: 'flex', listStyle: 'none', alignContent: 'space-around' };
+        const liStyle = { margin: '10px' };
         return React.createElement(
             _reactRouterDom.BrowserRouter,
             null,
@@ -181,10 +183,10 @@ let PoemNav = (_dec = (0, _reactRedux.connect)(_vgStore.mapStateToProps, _vgStor
                 null,
                 React.createElement(
                     'ul',
-                    { style: { display: 'flex', listStyle: 'none', alignContent: 'space-around' } },
+                    { style: ulStyle },
                     React.createElement(
                         'li',
-                        { style: { margin: '10px' } },
+                        { style: liStyle },
                         React.createElement(
                             _reactRouterDom.Link,
                             { to: '/' },
@@ -193,7 +195,7 @@ let PoemNav = (_dec = (0, _reactRedux.connect)(_vgStore.mapStateToProps, _vgStor
                     ),
                     React.createElement(
                         'li',
-                        { style: { margin: '10px' }, onClick: getPoet },
+                        { style: liStyle, onClick: getPoet },
                         React.createElement(
                             _reactRouterDom.Link,
                             { to: '/songPoetry' },
@@ -202,7 +204,7 @@ let PoemNav = (_dec = (0, _reactRedux.connect)(_vgStore.mapStateToProps, _vgStor
                     ),
                     React.createElement(
                         'li',
-                        { style: { margin: '10px' }, onClick: getPoet },
+                        { style: liStyle, onClick: getPoet },
                         React.createElement(
                             _reactRouterDom.Link,
                             { to: '/northernSongPoem' },
@@ -211,7 +213,7 @@ let PoemNav = (_dec = (0, _reactRedux.connect)(_vgStore.mapStateToProps, _vgStor
                     ),
                     React.createElement(
                         'li',
-                        { style: { margin: '10px' }, onClick: getPoet },
+                        { style: liStyle, onClick: getPoet },
                         React.createElement(
                             _reactRouterDom.Link,
                             { to: '/southernSongPoem' },
@@ -302,6 +304,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Poets(props) {
     const { poets, poems, url, getPoem } = props;
     const poemType = url.slice(1);
+    const style = { display: 'flex', flexWrap: 'wrap', listStyle: 'none', alignContent: 'space-around' };
     const pts = poets.map((poet, index) => React.createElement(
         'li',
         { style: { width: '80px', margin: '2px' }, key: index, onClick: getPoem },
@@ -316,7 +319,7 @@ function Poets(props) {
         null,
         React.createElement(
             'ul',
-            { style: { display: 'flex', flexWrap: 'wrap', listStyle: 'none', alignContent: 'space-around' } },
+            { style: style },
             pts
         ),
         React.createElement('hr', null),

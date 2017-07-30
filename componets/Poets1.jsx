@@ -5,10 +5,11 @@ import Poem from './Poem';
 function Poets(props) {
     const { poets, poems, url, getPoem } = props;
     const poemType = url.slice(1);
+    const style = { display: 'flex', flexWrap: 'wrap', listStyle: 'none', alignContent: 'space-around' };
     const pts = poets.map((poet, index) => <li style={{ width: '80px', margin: '2px' }} key={index} onClick={getPoem}><Link to={`${url}/${poet}`}>{poet}</Link></li>);
     return (
         <div>
-            <ul style={{ display: 'flex', flexWrap: 'wrap', listStyle: 'none', alignContent: 'space-around' }}>{pts}</ul>
+            <ul style={style}>{pts}</ul>
             <hr />
 
             <Route exact path={url} render={() => <h3>poets</h3>} />

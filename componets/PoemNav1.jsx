@@ -9,14 +9,16 @@ import { mapStateToProps, mapDispatchToProps } from '../store/vgStore';
 export default class PoemNav extends Component {
     render() {
         const { poets, poems, getPoet, getPoem } = this.props;
+        const ulStyle = { display: 'flex', listStyle: 'none', alignContent: 'space-around' };
+        const liStyle = { margin: '10px' };
         return(
             <Router>
                 <div>
-                    <ul style={{ display: 'flex', listStyle: 'none', alignContent: 'space-around' }}>
-                        <li style={{ margin: '10px' }}><Link to='/'>Home</Link></li>
-                        <li style={{ margin: '10px' }} onClick={getPoet}><Link to='/songPoetry'>songPoetry</Link></li>
-                        <li style={{ margin: '10px' }} onClick={getPoet}><Link to='/northernSongPoem'>northernSongPoem</Link></li>
-                        <li style={{ margin: '10px' }} onClick={getPoet}><Link to='/southernSongPoem'>southernSongPoem</Link></li>
+                    <ul style={ulStyle}>
+                        <li style={liStyle}><Link to='/'>Home</Link></li>
+                        <li style={liStyle} onClick={getPoet}><Link to='/songPoetry'>songPoetry</Link></li>
+                        <li style={liStyle} onClick={getPoet}><Link to='/northernSongPoem'>northernSongPoem</Link></li>
+                        <li style={liStyle} onClick={getPoet}><Link to='/southernSongPoem'>southernSongPoem</Link></li>
                     </ul>
                     <hr />
 
