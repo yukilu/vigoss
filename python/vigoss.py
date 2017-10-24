@@ -9,7 +9,7 @@ def home():
     return app.send_static_file('poetry.html')
 
 @app.route('/poetry/<poemType>')
-def types(poemType):
+def poets(poemType):
     if poemType in poetList:
         poets = poetList[poemType]
     else:
