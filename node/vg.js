@@ -24,13 +24,23 @@ app.get('/poetry/:poemType', function (req, res) {
 
     readRows(`SELECT author from ${poemType}`).then(function (rows) {
         poetList[poemType] = [];
+        const poetMap = {};
         const poets = poetList[poemType];
         for (let row of rows) {
             const author = row.AUTHOR;
-            if (find(author, poets))
-                continue;
-            poets.push(author);
+            if (poetMap[author] === undefined)
+                poetMap[author] = 0;
+            else
+                ++poetMap[author];
         }
+
+        const poetMapArray = [];
+        for (let k in poetMap) {
+            poetMapArray.push({ author: k, count: poetMap[k] });
+        }
+        poetMapArray.sort((p1, p2) => p2.count - p1.count);
+        for (let p of poetMapArray)
+            poets.push(p.author);
         res.send(JSON.stringify(poets));
     }, err => {
         res.send('[]');
