@@ -1,0 +1,49 @@
+import * as express from 'express';
+import * as fs from 'fs';
+import * as path from 'path';
+
+import * as marked from 'marked';
+import * as highlight from 'highlight.js';
+
+const files = fs.readdirSync(__dirname);
+const mdFiles = files.filter(file => file.endsWith('.md'));
+const mdLists = mdFiles.map(md => path.basename(md, '.md'));
+
+marked.setOptions({
+    highlight: code => highlight.highlightAuto(code).value
+});
+
+const app = express();
+app.use(express.static('../lib'));
+app.use(express.static('../react'));
+
+app.get('/', (req, res) => {
+    res.sendFile('D:\\Code\\engineer\\react\\reactNode.html');
+});
+
+app.get('/md/:title', function (req, res) {
+    const title = req.params.title;
+    read(`${title}.md`).then(function(result) {
+        res.send(JSON.stringify({ title, html: marked(result) }));
+    }, err => {
+        console.log(err);
+        res.send(JSON.stringify({ title, html: '404 not found' }));
+    });
+});
+
+app.get('/mdLists', (req, res) => {
+    res.send(JSON.stringify(mdLists));
+});
+
+app.listen(3000, () => console.log('Running at port 3000'));
+
+function read(path: string): Promise<string> {
+    return new Promise(function(resolve, reject) {
+        fs.readFile(path, function(err, data) {
+            if (err)
+                reject(err);
+            else
+                resolve(data.toString());
+        });
+    });
+}
