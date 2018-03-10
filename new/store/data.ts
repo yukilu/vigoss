@@ -15,20 +15,19 @@ export const CATEGORIESLISTS: categoryListsType = {
 };
 
 const initialShowedLists: ShowedLists = {};
-for (let i = 0; i < CATEGORIES.length; i++) {
-    if (!i) 
-        initialShowedLists[CATEGORIES[i]] = true;
-    else
-        initialShowedLists[CATEGORIES[i]] = false;
-}
+export const initialArticleTitle = getArticleTitle();
+const initialCategory = getCategory(initialArticleTitle);
+for (let i = 0; i < CATEGORIES.length; i++)
+    initialShowedLists[CATEGORIES[i]] = false;
+initialShowedLists[initialCategory] = true;
 
 export { initialShowedLists };
 
-export const initialArticleTitle = CATEGORIESLISTS[CATEGORIES[0]][0];
+export const firstArticleTitle = CATEGORIESLISTS[CATEGORIES[0]][0];
 
 export function getArticleTitle() {
     if (!localStorage.getItem('articleTitle'))
-        localStorage.setItem('articleTitle', initialArticleTitle);
+        localStorage.setItem('articleTitle', firstArticleTitle);
 
     return localStorage.getItem('articleTitle');
 }

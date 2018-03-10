@@ -12,4 +12,4 @@ const preloadedState: ReducerState = {
 
 export const store = createStore(reducer, preloadedState,  applyMiddleware(thunk));
 
-const unsubscribe = store.subscribe(() => { console.log(store.getState()); });
+// const unsubscribe = store.subscribe(() => { console.log(store.getState()); });

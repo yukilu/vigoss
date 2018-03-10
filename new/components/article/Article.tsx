@@ -29,7 +29,6 @@ function mapDispatchToProps(dispatch) {
     return {
         getArticleFromServer(title: string) {
             dispatch(changeArticle(title));
-            dispatch(changeShowedLists(getCategory(title)));
             dispatch(fetchArticle(title));
         }
     };
