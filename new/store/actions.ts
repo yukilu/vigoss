@@ -2,6 +2,9 @@ import axios from 'axios';
 
 import  { ShowedLists } from './data';
 
+// const URL= 'http://127.0.0.1:3000';
+const URL = 'https://www.vigoss.top';
+
 export interface ActionType {
     type: string;
     articleTitle?: string;
@@ -42,9 +45,13 @@ export function fetchArticle(title: string) {
     return function (dispatch, getState) {
         dispatch(requestArticle());
         localStorage.setItem('articleTitle', title);
-        return axios.get(`http://127.0.0.1:3000/md/${title}`).then(res => {
+        const cachedHTML = sessionStorage.getItem(title);
+        if (cachedHTML)
+            return dispatch(receiveArticle(cachedHTML));
+        return axios.get(`${URL}/md/${title}`).then(res => {
             const json = res.data;
             dispatch(receiveArticle(json.html));
+            sessionStorage.setItem(json.title, json.html);
         }, err => console.log(err));
     };
 }

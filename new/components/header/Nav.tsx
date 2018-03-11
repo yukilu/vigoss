@@ -9,6 +9,7 @@ const StyChosenA = styled.a`
     color: rgb(255,255,255);
     background: rgb(55, 57, 64);
     position: relative;
+    curosr: pointer;
 `;
 
 const StyA = styled.a`
@@ -17,6 +18,7 @@ const StyA = styled.a`
     height: 60px;
     line-height: 60px;
     color: #FFF;
+    cursor: pointer;
     &:hover { color: rgb(97,218,251); }
 `;
 

@@ -11,7 +11,7 @@ interface CategoryProps {
 }
 
 export default function Category(props: CategoryProps) {
-    const { lists, listsTitle, listsShowed, chosen, articleTitle } = props;
+    const { lists, listsTitle, listsShowed, articleTitle } = props;
     return (
         <div>
             <ListsTitle listsTitle={listsTitle} listsShowed={listsShowed} />

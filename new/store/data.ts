@@ -6,13 +6,15 @@ export interface ShowedLists {
     [index: string]: boolean;
 }
 
-export const CATEGORIES = ['source', 'languages', 'algorithm'];
+export const CATEGORIES = ['SimplifiedSource', 'ImplementedByMyself', 'Algorithm'];
 
 export const CATEGORIESLISTS: categoryListsType = {
-    source: ['simpleRedux', 'simpleReact', 'promise'],
-    languages: ['javascript', 'typescript', 'java'],
-    algorithm: ['quickSort', 'heapSort']
+    SimplifiedSource: ['simpleReact', 'simpleAdvancedReact', 'simpleRedux', 'simpleAdvancedRedux', 'simpleReactRedux'],
+    ImplementedByMyself: ['MyPromise', 'MyRxJS', 'iQuery'],
+    Algorithm: ['quickSort', 'heapSort']
 };
+
+const firstArticleTitle = CATEGORIESLISTS[CATEGORIES[0]][0];
 
 const initialShowedLists: ShowedLists = {};
 export const initialArticleTitle = getArticleTitle();
@@ -22,8 +24,6 @@ for (let i = 0; i < CATEGORIES.length; i++)
 initialShowedLists[initialCategory] = true;
 
 export { initialShowedLists };
-
-export const firstArticleTitle = CATEGORIESLISTS[CATEGORIES[0]][0];
 
 export function getArticleTitle() {
     if (!localStorage.getItem('articleTitle'))
