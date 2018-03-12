@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyChosenA = styled.a`
     float: left;
-    width: 80px;
+    width: 8%;
     height: 60px;
     line-height: 60px;
     color: rgb(255,255,255);
@@ -14,7 +14,7 @@ const StyChosenA = styled.a`
 
 const StyA = styled.a`
     float: left;
-    width: 80px;
+    width: 8%;
     height: 60px;
     line-height: 60px;
     color: #FFF;
@@ -23,7 +23,7 @@ const StyA = styled.a`
 `;
 
 const StySpan = styled.span`
-    width: 80px;
+    width: 100%;
     height: 3px;
     background: rgb(97,218,251);
     position: absolute;
@@ -31,14 +31,18 @@ const StySpan = styled.span`
     bottom: 0;
 `;
 
+const StyNav = styled.nav`
+    height: 60px;
+`;
+
 export default function Nav(props: {}) {
     return (
-        <nav>
+        <StyNav>
             <StyChosenA>
                 Blog
                 <StySpan />
             </StyChosenA>
             <StyA>Poem</StyA>
-        </nav>
+        </StyNav>
     );
 }

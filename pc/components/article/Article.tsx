@@ -10,7 +10,7 @@ import { changeArticle, changeShowedLists, fetchArticle } from '../../store/acti
 import { getArticleTitle, getCategory } from '../../store/data';
 
 const StyArticle = styled.article`
-    margin: 60px 400px 0 85px;
+    margin: 60px 30% 0 5%;
     padding: 50px 0;
 `;
 

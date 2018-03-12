@@ -5,12 +5,12 @@ import Nav from './Nav';
 
 const StyHeader = styled.header`
     text-align: center;
-    width: 100%;
+    width: 80%;
     height: 60px;
     position: fixed;
     top: 0;
     left: 0;
-    padding: 0 260px;
+    padding-left: 20%;
     background: rgb(32,35,42);
 `;
 

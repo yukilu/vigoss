@@ -7,13 +7,13 @@ import { ReducerState } from '../../store/reducer';
 import { CATEGORIES, getCategory, ShowedLists } from '../../store/data';
 
 const StySide = styled.aside`
-    width: 385px;
-    height: 800px;
+    width: 27%;
+    height: calc(100vh - 120px);
     position: fixed;
     right: 0;
     top: 60px;
     background: rgb(247,247,247);
-    padding: 60px 0 0 15px;
+    padding: 60px 0 0 2%;
 `;
 
 interface SideProps {
