@@ -5,14 +5,12 @@ import { connect } from 'react-redux';
 
 import ArticleTitle from './ArticleTitle';
 import ArticleContent from './ArticleContent';
-import { ReducerState } from '../../store/reducer';
-import { changeArticle, changeShowedLists, fetchArticle } from '../../store/actions';
-import { getArticleTitle, getCategory } from '../../store/data';
+import { ReducerState } from '../../store_m/reducer';
+import { changeArticle, fetchArticle } from '../../store_m/actions';
+import { getArticleTitle, getCategory } from '../../store_m/data';
 
 const StyArticle = styled.article`
-    margin-left: 5%;
-    margin-right: 30%;
-    padding-top: 100px;
+    padding: 60px 20px 0;
 `;
 
 interface ArticleProps {

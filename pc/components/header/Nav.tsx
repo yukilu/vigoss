@@ -42,7 +42,7 @@ export default function Nav(props: {}) {
                 Blog
                 <StySpan />
             </StyChosenA>
-            <StyA>Poem</StyA>
+            <StyA href="poem.html">Poem</StyA>
         </StyNav>
     );
 }

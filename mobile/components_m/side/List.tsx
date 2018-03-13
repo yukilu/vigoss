@@ -2,11 +2,13 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { changeArticle, fetchArticle } from '../../store/actions';
+import { changeArticle, changeShowed, fetchArticle } from '../../store_m/actions';
+import { ReducerState } from '../../store_m/reducer';
 
 interface ListProps {
     chosen: boolean;
     articleTitle: string;
+    showed: boolean;
     changeAndGetArticle: (title: string) => void;
 }
 
@@ -22,7 +24,6 @@ const StyLi = styled.li`
     margin-top: 5px;
     position: relative;
     cursor: pointer;
-    color: ${(props: StyLi) => (props.chosen ? 'rgb(0,0,0)' : 'rgb(26,26,26)')};
     &:hover { color: rgb(109,109,109); }
 `;
 
@@ -35,23 +36,35 @@ const StySpan = styled.span`
     background: rgb(97,218,251);
 `;
 
+function mapStateToProps(state: ReducerState) {
+    return { showed: state.showed };
+}
+
 function mapDispatchToProps(dispatch) {
     return {
         changeAndGetArticle(title: string) {
             dispatch(changeArticle(title));
+            dispatch(changeShowed(false));
             dispatch(fetchArticle(title));
         }
     };
 }
 
-@connect(null, mapDispatchToProps)
+const emptyFn = () => {};
+
+@connect(mapStateToProps, mapDispatchToProps)
 export default class List extends React.Component<ListProps, {}> {
     render() {
-        const { chosen, articleTitle, changeAndGetArticle, children } = this.props;
+        const { chosen, articleTitle, showed, changeAndGetArticle, children } = this.props;
         const handleClick = () => {
             changeAndGetArticle(articleTitle);
         };
 
-        return <StyLi onClick={handleClick} chosen={chosen}><a>{children}</a>{chosen ? <StySpan /> : null}</StyLi>;
+        return (
+            <StyLi onClick={showed ? handleClick: emptyFn} chosen={chosen}>
+                <a>{children}</a>
+                {chosen ? <StySpan /> : null}
+            </StyLi>
+        );
     }
 }
