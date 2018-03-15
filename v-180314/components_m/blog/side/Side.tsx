@@ -20,7 +20,7 @@ const StySide = styled.aside`
     transition: opacity 0.5s ease;
     opacity: ${(props: StySideProps) => props.showed ? '1': '0'};
     background: #FFF;
-    overflow: scroll;
+    overflow: ${(props: StySideProps) => props.showed ? 'scroll' : 'hidden'};
 `;
 
 interface SideProps {

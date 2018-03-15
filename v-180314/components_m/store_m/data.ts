@@ -7,7 +7,7 @@ export const NAVTABS = ['Blog', 'Demo', 'Poem', 'About'];
 export const CATEGORIES = ['SimplifiedSource', 'ImplementedByMyself', 'Algorithm'];
 
 export const CATEGORIESLISTS: categoryListsType = {
-    SimplifiedSource: ['simpleReact', 'simpleAdvancedReact', 'simpleRedux', 'simpleAdvancedRedux', 'simpleReactRedux'],
+    SimplifiedSource: ['simplePromise', 'simpleReact', 'simpleAdvancedReact', 'simpleRedux', 'simpleAdvancedRedux', 'simpleReactRedux'],
     ImplementedByMyself: ['MyPromise', 'MyRxJS', 'iQuery'],
     Algorithm: ['quickSort', 'heapSort']
 };
