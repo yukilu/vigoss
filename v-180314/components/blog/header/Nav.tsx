@@ -43,10 +43,12 @@ interface NavProps {
 
 export default function Nav(props: NavProps) {
     const { navTab } = props;
-    const items = NAVTABS.map(item => {
+    const items = NAVTABS.map((item, index) => {
         if (item === navTab)
-            return <StyChosenA>Blog<StySpan /></StyChosenA>;
-        return <StyA href={`${item.toLowerCase()}.html`}>{item}</StyA>;
+            return <StyChosenA key={item}>{item}<StySpan /></StyChosenA>;
+        if (item !== navTab && !index)
+            return <StyA key={item} href="/">{item}</StyA>;
+        return <StyA key={item} href={`${item.toLowerCase()}.html`}>{item}</StyA>;
     })
     return <StyNav>{items}</StyNav>;
 }
