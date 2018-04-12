@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",  // "es6"
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "sourceMap": true
+    },
+    "include": [
+        "./react/*"
+    ]
+}
