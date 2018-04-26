@@ -1,9 +1,9 @@
 <template>
     <div>
         <Header :tabs="tabs" :index="index" />
-        <main class="main">
+        <div class="main">
             <DemoLists v-for="c in demoCategories" :key="c" :category="c" :lists="demoMap[c]"/>
-        </main>
+        </div>
     </div>
 </template>
 

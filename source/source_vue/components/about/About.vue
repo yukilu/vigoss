@@ -1,11 +1,11 @@
 <template>
     <div>
         <Header :tabs="tabs" :index="index" />
-        <main class="main">
+        <div class="main">
             <AboutMe />
             <TechStack />
             <BooksSection />
-        </main>
+        </div>
     </div>
 </template>
 
