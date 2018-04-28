@@ -42,3 +42,24 @@ export function getCategory(articleTitle: string) {
     
     return '';
 }
+
+interface ALinkType {
+    name: string;
+    link: string;
+}
+
+interface DemoListsType {
+    [index: string]: ALinkType[];
+}
+
+export const DEMO_CATEGORIES = ['transform', 'canvas'];
+
+export const DEMO_LISTS: DemoListsType = {
+    transform: [
+        { name: '立方体', link: '#' },
+        { name: '翻页效果', link: '#' }
+    ],
+    canvas: [
+        { name: '捕鱼达人', link: '#' }
+    ]
+};

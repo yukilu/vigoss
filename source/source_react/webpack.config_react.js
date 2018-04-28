@@ -2,8 +2,8 @@ let path = require('path');
 let webpack = require('webpack');
 
 const config = {
-    mode: 'development',
-    // mode: 'production',
+    // mode: 'development',
+    mode: 'production',
     entry: {
         app: './react/entry'
     },
@@ -34,12 +34,12 @@ const config = {
         'react-router-dom': 'ReactRouterDOM',
         'redux-observable': 'ReduxObservable'
     },
-    optimization: {
-        minimize: true,
-        splitChunks: {
-            chunks: 'all'
-        }
-    },
+    // optimization: {
+    //     // minimize: true,
+    //     splitChunks: {
+    //         chunks: 'all'
+    //     }
+    // },
     plugins: [
         new webpack.optimize.ModuleConcatenationPlugin(),
     ]

@@ -7,9 +7,9 @@ import { getCategory } from '../../store/data';
 
 interface ListsTitleProps {
     listsTitle: string;
-    categoryChosen: boolean;
+    categoryChosen?: boolean;
     listsShowed: boolean;
-    toggleShowedLists: (category: string) => void;
+    toggleShowedLists?: (category: string) => void;
 }
 
 interface StyListsTitleDivProps {

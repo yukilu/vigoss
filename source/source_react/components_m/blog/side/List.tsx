@@ -8,8 +8,8 @@ import { ReducerState } from '../../store_m/reducer';
 interface ListProps {
     chosen: boolean;
     articleTitle: string;
-    showed: boolean;
-    changeAndGetArticle: (title: string) => void;
+    showed?: boolean;
+    changeAndGetArticle?: (title: string) => void;
 }
 
 interface StyLi {

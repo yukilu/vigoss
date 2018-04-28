@@ -24,8 +24,8 @@ const StySide = styled.aside`
 `;
 
 interface SideProps {
-    articleTitle: string;
-    showed: boolean;
+    articleTitle?: string;
+    showed?: boolean;
 }
 
 function mapStateToProps(state: ReducerState) {

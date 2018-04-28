@@ -9,8 +9,8 @@ import { ReducerState } from '../../store_m/reducer';
 import { changeShowed } from '../../store_m/actions';
 
 interface ToggleButtonProps {
-    showed: boolean;
-    changeOpacity: (showed: boolean) => void;
+    showed?: boolean;
+    changeOpacity?: (showed: boolean) => void;
 }
 
 const StyDiv = styled.div`

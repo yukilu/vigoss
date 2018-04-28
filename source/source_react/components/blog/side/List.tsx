@@ -44,8 +44,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-@connect(null, mapDispatchToProps)
-export default class List extends React.Component<ListProps, {}> {
+class List extends React.Component<ListProps, {}> {
     render() {
         const { chosen, articleTitle, changeAndGetArticle, children } = this.props;
         const handleClick = () => {
@@ -55,3 +54,6 @@ export default class List extends React.Component<ListProps, {}> {
         return <StyLi onClick={handleClick} chosen={chosen}><a>{children}</a>{chosen ? <StySpan /> : null}</StyLi>;
     }
 }
+
+const ConnectedList = connect(null, mapDispatchToProps)(List);
+export default ConnectedList;

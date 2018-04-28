@@ -14,9 +14,9 @@ const StyArticle = styled.article`
 `;
 
 interface ArticleProps {
-    title: string;
-    html: string;
-    getArticleFromServer: (title: string) => void;
+    title?: string;
+    html?: string;
+    getArticleFromServer?: (title: string) => void;
 }
 
 function mapStateToProps(state: ReducerState) {
